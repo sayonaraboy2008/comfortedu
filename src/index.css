@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Fanwood+Text:regular,italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  font-family: "Montserrat";
+}
+body {
+  background-color: #112da8;
+}
+.fanwoodli {
+  font-family: "Fanwood Text";
+}
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: yellow;
+  padding: 12px 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  position: relative;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 4rem; /* e’lonlar orasidagi masofa */
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
