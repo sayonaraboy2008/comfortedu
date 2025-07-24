@@ -1,6 +1,6 @@
 // src/pages/EditTeacher.jsx
 import { useParams } from "react-router-dom";
-import { teachers } from "../data/teachers";
+import { teachers } from "../Components/teachers";
 import { useState } from "react";
 
 const EditTeacher = () => {

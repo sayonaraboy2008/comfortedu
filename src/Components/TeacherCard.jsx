@@ -1,5 +1,4 @@
 // src/components/TeacherCard.jsx
-import { Link } from "react-router-dom";
 
 const TeacherCard = ({ teacher }) => {
   return (
@@ -14,11 +13,9 @@ const TeacherCard = ({ teacher }) => {
         <p>IELTS darajasi: {teacher.ielts}</p>
         <p>{teacher.experience}</p>
         <p>{teacher.description}</p>
-        <Link to={`/edit/${teacher.id}`}>
-          <button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
-            Ariza topshirish
-          </button>
-        </Link>
+        <button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+          Ariza topshirish
+        </button>
       </div>
     </div>
   );
