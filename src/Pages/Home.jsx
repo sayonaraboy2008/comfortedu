@@ -5,7 +5,8 @@ import natijapng from "../assets/natija.png";
 import homeimg from "../assets/homeimg.png";
 import { GiBookPile } from "react-icons/gi";
 import IeltsSteps from "../Components/IeltsStesps";
-
+import TeacherCard from "../Components/TeacherCard";
+import { teachers } from "../Components/teachers";
 function Home() {
   return (
     <>
@@ -157,7 +158,13 @@ function Home() {
       {/* Kuchlilar */}
       <section>
         <h3>Eng kuchli o’qituvchilarimiz !</h3>
-        <div className="cards"></div>
+        <div className="cards">
+          <div className="p-6 flex gap-4 flex-wrap">
+            {teachers.map((t) => (
+              <TeacherCard key={t.id} teacher={t} />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
