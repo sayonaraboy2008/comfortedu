@@ -13,7 +13,9 @@ function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Logo" className="h-10 w-10" />
+          <Link to={"/"}>
+            <img src={logo} alt="Logo" className="h-10 w-10" />
+          </Link>
         </div>
 
         {/* Desktop Menu */}

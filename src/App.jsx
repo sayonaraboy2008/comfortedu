@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import EditTeacher from "./Components/EditTeacher";
 import AdminPanel from "./Components/AdminPanel";
+import Petition from "./Components/Petition";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           {/* Admin sahifasi */}
           <Route path="/edit/:id" element={<EditTeacher />} />
           {/* Tahrirlash */}
+          <Route path="/ariza" element={<Petition />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,21 +1,46 @@
-// src/pages/EditTeacher.jsx
-import { useParams } from "react-router-dom";
-import { teachers } from "../Components/teachers";
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const EditTeacher = () => {
   const { id } = useParams();
-  const teacher = teachers.find((t) => t.id === parseInt(id));
-  const [form, setForm] = useState({ ...teacher });
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Mokky endpoint
+  const ENDPOINT = "https://6a81eace9afbeb48.mokky.dev/comfortteachers";
+
+  useEffect(() => {
+    fetch(`${ENDPOINT}/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setForm(data);
+        setLoading(false);
+      });
+  }, [id]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Tahrirlandi (lekin hozircha real saqlash yo‘q)");
+    const response = await fetch(`${ENDPOINT}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    if (response.ok) {
+      alert("Tahrir muvaffaqiyatli saqlandi!");
+      navigate("/admin"); // qaytib yuborish admin sahifaga
+    } else {
+      alert("Xatolik yuz berdi!");
+    }
   };
+
+  if (loading || !form) return <p>Yuklanmoqda...</p>;
 
   return (
     <div className="p-6 max-w-md mx-auto">

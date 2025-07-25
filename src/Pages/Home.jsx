@@ -156,8 +156,10 @@ function Home() {
         </div>
       </div>
       {/* Kuchlilar */}
-      <section>
-        <h3>Eng kuchli o’qituvchilarimiz !</h3>
+      <section className="max-w-[1280px] m-auto py-[30px]">
+        <h3 className="text-white text-[30px]">
+          Eng kuchli o’qituvchilarimiz !
+        </h3>
         <div className="cards">
           <div className="p-6 flex gap-4 flex-wrap">
             {teachers.map((t) => (
