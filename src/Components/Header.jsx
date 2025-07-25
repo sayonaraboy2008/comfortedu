@@ -33,7 +33,7 @@ function Header() {
             Muhim savollar
           </Link>
           <Link
-            to="#"
+            to="/ariza"
             className="px-4 py-1 border border-orange-400 rounded-full text-orange-400 hover:bg-orange-400 hover:text-white transition">
             Ariza topshirish
           </Link>

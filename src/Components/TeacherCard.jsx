@@ -1,5 +1,5 @@
 // src/components/TeacherCard.jsx
-
+import { Link } from "react-router-dom";
 const TeacherCard = ({ teacher }) => {
   return (
     <div className="bg-orange-500 text-white rounded-lg overflow-hidden shadow-md w-64">
@@ -13,9 +13,11 @@ const TeacherCard = ({ teacher }) => {
         <p>IELTS darajasi: {teacher.ielts}</p>
         <p>{teacher.experience}</p>
         <p>{teacher.description}</p>
-        <button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+        <Link
+          to={"/ariza"}
+          className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
           Ariza topshirish
-        </button>
+        </Link>
       </div>
     </div>
   );

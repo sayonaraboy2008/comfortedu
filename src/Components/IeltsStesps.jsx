@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const IeltsSteps = () => {
   const steps = [
     {
@@ -33,7 +34,7 @@ const IeltsSteps = () => {
         Qanday qilib 2 oyda IELTS dan 7+ olasiz ?
       </h2>
 
-      <div className="relative flex flex-col items-center max-w-5xl mx-auto">
+      <div className="relative flex flex-col items-center max-w-5xl mx-auto pb-10">
         <div className="absolute w-1 bg-white h-full left-1/2 transform -translate-x-1/2 z-0" />
 
         {steps.map((step) => (
@@ -69,9 +70,11 @@ const IeltsSteps = () => {
         ))}
       </div>
 
-      <button className="mt-10 bg-orange-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-orange-600 transition text-sm sm:text-base">
+      <Link
+        to={"/ariza"}
+        className="mt-16 bg-orange-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-orange-600 transition text-sm sm:text-base">
         Ariza topshirish
-      </button>
+      </Link>
     </div>
   );
 };
