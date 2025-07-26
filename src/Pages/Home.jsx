@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import cdimg from "../assets/cdimg.png";
 import natijapng from "../assets/natija.png";
@@ -6,8 +8,24 @@ import homeimg from "../assets/homeimg.png";
 import { GiBookPile } from "react-icons/gi";
 import IeltsSteps from "../Components/IeltsStesps";
 import TeacherCard from "../Components/TeacherCard";
-import { teachers } from "../Components/teachers";
+import Testimonials from "../Components/Testimonials";
+// import { teachers } from "../Components/teachers";
 function Home() {
+  const [teachers, setTeachers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://6a81eace9afbeb48.mokky.dev/comfortteachers")
+      .then((res) => res.json())
+      .then((data) => {
+        setTeachers(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("O'qituvchilarni yuklashda xatolik:", err);
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
       {/* Bosh Bo'lim */}
@@ -156,18 +174,47 @@ function Home() {
         </div>
       </div>
       {/* Kuchlilar */}
-      <section className="max-w-[1280px] m-auto py-[30px]">
-        <h3 className="text-white text-[30px]">
-          Eng kuchli o’qituvchilarimiz !
+      <section className="max-w-[1280px] m-auto py-[30px] px-4">
+        <h3 className="text-white text-[24px] md:text-[30px] font-semibold mb-6 text-center md:text-left">
+          Eng kuchli o’qituvchilarimiz!
         </h3>
-        <div className="cards">
-          <div className="p-6 flex gap-4 flex-wrap">
+
+        {loading ? (
+          <p className="text-white text-lg text-center">Yuklanmoqda...</p>
+        ) : teachers.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {teachers.map((t) => (
               <TeacherCard key={t.id} teacher={t} />
             ))}
           </div>
-        </div>
+        ) : (
+          <p className="text-white text-lg text-center">
+            O'qituvchilar topilmadi
+          </p>
+        )}
       </section>
+
+      {/* Comments */}
+      <div className="bg-[#dd661c]">
+        <section>
+          <h2>Bitiruvchilarimiz fikrlari</h2>
+          <Testimonials />
+        </section>
+      </div>
+      {/* Reklama bir */}
+      <div className="bg-[#DD661C] mt-[30px]">
+        <section className="max-w-[784px] m-auto py-[30px] px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <h2 className="text-[20px] md:text-[23px] text-white">
+            Ingiliz tilini biz bilan o’rganing va o’zingizga 100% lik 7+ ni
+            taqdim eting
+          </h2>
+          <Link
+            to="/ariza"
+            className="px-4 py-2 border border-orange-400 rounded-full text-orange-400 hover:bg-orange-400 hover:text-white transition w-fit">
+            Ariza topshirish
+          </Link>
+        </section>
+      </div>
     </>
   );
 }

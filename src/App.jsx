@@ -5,6 +5,9 @@ import Home from "./Pages/Home";
 import EditTeacher from "./Components/EditTeacher";
 import AdminPanel from "./Components/AdminPanel";
 import Petition from "./Pages/Petition";
+import "swiper/css";
+import "swiper/css/pagination";
+
 function App() {
   return (
     <>
