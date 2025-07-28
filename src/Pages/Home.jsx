@@ -9,6 +9,7 @@ import { GiBookPile } from "react-icons/gi";
 import IeltsSteps from "../Components/IeltsStesps";
 import TeacherCard from "../Components/TeacherCard";
 import Testimonials from "../Components/Testimonials";
+import FaqAccordion from "../Components/FaqAccordion";
 // import { teachers } from "../Components/teachers";
 function Home() {
   const [teachers, setTeachers] = useState([]);
@@ -197,7 +198,6 @@ function Home() {
       {/* Comments */}
       <div className="bg-[#dd661c]">
         <section>
-          <h2>Bitiruvchilarimiz fikrlari</h2>
           <Testimonials />
         </section>
       </div>
@@ -215,6 +215,44 @@ function Home() {
           </Link>
         </section>
       </div>
+      {/* Savollar */}
+      <section className="max-w-[1180px] m-auto">
+        <h2 className="text-[34px] pt-[50px] text-white">Muhim savollar</h2>
+        <div className="py-[50px]">
+          <FaqAccordion />
+        </div>
+      </section>
+      {/* Reklama ikki (scroll) */}
+      <div className="bg-[#DD661C] overflow-hidden whitespace-nowrap">
+        <div className="animate-marquee inline-block min-w-full">
+          {[...Array(2)]
+            .flatMap(() => [
+              "🚨 Diqqat! Ro‘yxatdan o‘tish muddati tugash arafasida!",
+              "📢 Joylar soni cheklangan — shoshiling!",
+            ])
+            .map((text, i) => (
+              <span
+                key={i}
+                className="inline-block px-8 text-white text-[18px]">
+                {text}
+              </span>
+            ))}
+        </div>
+      </div>
+      {/* Savollar berish uchun */}
+      <section className="flex">
+        <div>
+          <h3>Savollaringizga Javob topa olmadingizmi ?</h3>
+          <p>
+            Qo'shimcha savol va muroojaatlar uchun bizning operatorlarimiz bilan
+            bog'lanishingiz mumkin.
+          </p>
+          <button className="bg-[#DD661C] px-[10px] py-[6px] border-none text-white">
+            Bog'lanish
+          </button>
+        </div>
+        <div></div>
+      </section>
     </>
   );
 }

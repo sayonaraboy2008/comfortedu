@@ -33,24 +33,18 @@ function Testimonials() {
       ) : (
         <Swiper
           modules={[Pagination, EffectCoverflow, Autoplay]}
-          effect="coverflow"
+          // effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
           slidesPerView="1.5"
-          coverflowEffect={{
-            rotate: 30,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
+          spaceBetween={"50"}
           autoplay={{ delay: 4000 }}
           pagination={{ clickable: true }}
-          className="max-w-6xl mx-auto">
+          className="max-w-7xl mx-auto">
           {reviews.map((review) => (
             <SwiperSlide
               key={review.id}
-              className="w-[90%] sm:w-[300px] md:w-[350px]">
+              className="w-[100%] sm:w-[300px] md:w-[350px]">
               <div className="bg-[#1E40AF] text-white p-6 rounded-2xl h-full shadow-xl">
                 <div className="flex items-center gap-4 mb-4">
                   <img
